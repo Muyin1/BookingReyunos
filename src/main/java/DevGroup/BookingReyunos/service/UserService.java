@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import DevGroup.BookingReyunos.dto.LoginDTO;
 import DevGroup.BookingReyunos.dto.UserDTO;
+import DevGroup.BookingReyunos.dto.UserRoleDTO;
 import DevGroup.BookingReyunos.exceptions.InvalidCredentialsException;
 import DevGroup.BookingReyunos.exceptions.UserNotFoundException;
+import DevGroup.BookingReyunos.model.Role;
 import DevGroup.BookingReyunos.model.User;
 import DevGroup.BookingReyunos.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
@@ -30,6 +32,25 @@ public class UserService {
     // Inyectar la clave secreta desde el archivo de configuración
     @Value("${jwt.secret}")
     private String secretKeyString;
+
+    public void assignRole(UserRoleDTO userRoleDTO) {
+        String username = userRoleDTO.getUsername();
+        if (username == null || username.isEmpty()) {
+            throw new RuntimeException("Username must not be null or empty");
+        }
+        
+        User user = userRepository.findByUsername(username)
+            .orElseThrow(() -> new UserNotFoundException("User not found"));
+        
+        try {
+            Role role = Role.valueOf(userRoleDTO.getRole());
+            user.setRole(role);
+            userRepository.save(user);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Invalid role specified: " + userRoleDTO.getRole());
+        }
+    }
+    
 
     // Método para registrar un nuevo usuario
     public User register(UserDTO userDTO) {

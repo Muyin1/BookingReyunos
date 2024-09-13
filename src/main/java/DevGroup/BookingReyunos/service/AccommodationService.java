@@ -1,14 +1,15 @@
 package DevGroup.BookingReyunos.service;
 
+import DevGroup.BookingReyunos.dto.AccommodationDTO;
+import DevGroup.BookingReyunos.exceptions.AccommodationNotFoundException;
+import DevGroup.BookingReyunos.model.Accommodation;
+import DevGroup.BookingReyunos.repository.AccommodationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import DevGroup.BookingReyunos.dto.AccommodationDTO;
-import DevGroup.BookingReyunos.model.Accommodation;
-import DevGroup.BookingReyunos.repository.AccommodationRepository;
 
 @Service
 public class AccommodationService {
@@ -16,7 +17,6 @@ public class AccommodationService {
     @Autowired
     private AccommodationRepository accommodationRepository;
 
-    // Método para convertir Accommodation a AccommodationDTO
     private AccommodationDTO convertToDTO(Accommodation accommodation) {
         AccommodationDTO dto = new AccommodationDTO();
         dto.setId(accommodation.getId());
@@ -26,7 +26,6 @@ public class AccommodationService {
         return dto;
     }
 
-    // Método para convertir AccommodationDTO a Accommodation
     private Accommodation convertToEntity(AccommodationDTO dto) {
         Accommodation accommodation = new Accommodation();
         accommodation.setId(dto.getId());
@@ -44,9 +43,9 @@ public class AccommodationService {
     }
 
     public AccommodationDTO findById(Integer id) {
-        Optional<Accommodation> accommodation = accommodationRepository.findById(id.intValue());
+        Optional<Accommodation> accommodation = accommodationRepository.findById(id);
         return accommodation.map(this::convertToDTO)
-                            .orElseThrow(() -> new RuntimeException("Accommodation not found"));
+                            .orElseThrow(() -> new AccommodationNotFoundException("Accommodation not found"));
     }
 
     public AccommodationDTO save(AccommodationDTO accommodationDTO) {
@@ -56,13 +55,19 @@ public class AccommodationService {
     }
 
     public AccommodationDTO update(Integer id, AccommodationDTO accommodationDTO) {
+        if (!accommodationRepository.existsById(id)) {
+            throw new AccommodationNotFoundException("Accommodation not found");
+        }
         Accommodation accommodation = convertToEntity(accommodationDTO);
-        accommodation.setId(id.intValue()); // nos aseguramps que se actualice el ID
+        accommodation.setId(id); // nos aseguramos que se actualice el ID
         Accommodation updatedAccommodation = accommodationRepository.save(accommodation);
         return convertToDTO(updatedAccommodation);
     }
 
     public void delete(Integer id) {
+        if (!accommodationRepository.existsById(id)) {
+            throw new AccommodationNotFoundException("Accommodation not found");
+        }
         accommodationRepository.deleteById(id);
     }
 }
