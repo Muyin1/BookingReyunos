@@ -1,7 +1,5 @@
 package DevGroup.BookingReyunos.model;
 
-import org.hibernate.annotations.MapKeyCompositeType;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
