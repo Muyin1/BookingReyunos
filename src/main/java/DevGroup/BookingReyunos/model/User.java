@@ -27,6 +27,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private String resetToken;
     
     @Enumerated(EnumType.STRING)
     private Role role; // ADMIN, OWNER, GUEST.
@@ -37,10 +38,4 @@ public class User {
     
     @OneToMany(mappedBy = "guest")
     private List<Booking> bookings;
-}
-
-enum Role {
-    ADMIN,
-    OWNER,
-    GUEST
 }

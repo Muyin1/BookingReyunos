@@ -11,8 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -20,49 +23,53 @@ public class SecurityConfig {
 
     private final JwtRequestFilter jwtRequestFilter;
 
-    // Inyectar el filtro JWT
     public SecurityConfig(JwtRequestFilter jwtRequestFilter) {
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
-    // Configurar la cadena de filtros de seguridad
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF para permitir autenticación basada en tokens
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Aplicar CORS
+                .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF
                 .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/users/register", "/users/login").permitAll() // Permitir acceso público a login y registro
-                    .anyRequest().authenticated() // Proteger cualquier otro endpoint, se requiere autenticación
+                        .requestMatchers("/users/register",
+                                "/users/login",
+                                "/users/forgot-password",
+                                "/users/reset-password")
+                        .permitAll() // Permitir login y registro
+                        .anyRequest().authenticated() // Bloquear el resto sin autenticación
                 )
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // No usar sesiones
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class) // Añadir el filtro JWT antes del filtro de autenticación
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // No usar
+                                                                                                              // sesiones
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class) // Filtro JWT
                 .build();
     }
 
-    // Definir el PasswordEncoder como un bean para poder inyectarlo donde se necesite
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // Definir el AuthenticationManager como un bean
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    // Configuración CORS para permitir solicitudes desde el frontend (React)
+    // Definir la configuración de CORS
     @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000") // Dirección del frontend React
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
-            }
-        };
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOrigin("http://localhost:3001");
+        configuration.addAllowedMethod("*"); // Permitir todos los métodos
+        configuration.addAllowedHeader("*"); // Permitir todos los headers
+        configuration.setAllowCredentials(true);
+    
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
+    
+
 }
