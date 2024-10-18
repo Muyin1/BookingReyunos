@@ -4,9 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Accomodation from './components/Accomodation';
+import Contacto from './components/Contacto';
+import Infraestructura from './components/Infraestructura';
+import Programas from './components/Programas';
 import LoginForm from './components/loginForms';
 import RegisterForm from './components/RegisterForm';  // Nueva importación
 import ForgotPassword from './components/ForgotPassword';  // Nueva importación
+
 
 function App() {
   return (
@@ -16,6 +20,9 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Página Principal</h1>} />
           <Route path="/accommodations" element={<Accomodation />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/infraestructura" element={<Infraestructura />} />
+          <Route path="/programas" element={<Programas />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />  {/* Ruta de registro */}
           <Route path="/forgot-password" element={<ForgotPassword />} />  {/* Ruta restablecer */}
