@@ -1,32 +1,29 @@
 // src/App.js
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Accommodation from './components/Accommodation';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Accomodation from './components/Accomodation';
+import LoginForm from './components/loginForms';
+import RegisterForm from './components/RegisterForm';  // Nueva importación
+import ForgotPassword from './components/ForgotPassword';  // Nueva importación
 
 function App() {
-    const [accommodations, setAccommodations] = useState([]);
-
-    useEffect(() => {
-        // Hacer la petición al backend para obtener las accommodations
-        axios.get('http://localhost:8080/api/accommodations')
-            .then(response => {
-                setAccommodations(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching accommodations:', error);
-            });
-    }, []);
-
-    return (
-        <div className="App">
-            <h1 className='h1'>Lista de Alojamiento</h1>
-            <div className="accommodations-list">
-                {accommodations.map(accommodation => (
-                    <Accommodation key={accommodation.id} accommodation={accommodation} />
-                ))}
-            </div>
-        </div>
-    );
+  return (
+    <Router>
+      <Navbar />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<h1>Página Principal</h1>} />
+          <Route path="/accommodations" element={<Accomodation />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />  {/* Ruta de registro */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />  {/* Ruta restablecer */}
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
+  );
 }
 
 export default App;
