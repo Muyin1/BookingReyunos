@@ -36,6 +36,19 @@ function Footer() {
           <FontAwesomeIcon icon={faInstagram} />
         </a>
       </div>
+      <div className='footer-div-4'>
+        <div>Al utilizar este sitio web, acepta el uso de cookies. </div>
+        <div>
+        <a target="_blank" rel="nofollow" href="_blank" class="footer_link">Política de cookies</a> 
+        | 
+        <a target="_blank" rel="nofollow" href="_blank" class="footer_link">Términos y condiciones</a>
+        |
+        <a target="_blank" rel="nofollow" href="_blank" class="footer_link">Política de privacidad</a>
+        |
+        <a href="" rel="nofollow" target="_blank">Textos</a>
+        </div>
+        <span class="framework_f">Tag: <span class="tag_cookie">devgroupreyunos</span> </span>
+      </div>
     </footer>
   );
 }

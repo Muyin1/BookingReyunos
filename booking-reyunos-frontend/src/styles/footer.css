@@ -1,20 +1,37 @@
 footer {
     background-color: #333;
     display: flex;
-    justify-content: space-around; /* Distribuye los divs horizontalmente */
-    align-items: flex-start; /* Alinea los divs en la parte superior */
+    flex-wrap: wrap; /* Permite que los divs se ajusten y pasen a la siguiente línea si no hay espacio */
     color: white;
-    padding: 20px 0; /* Espaciado superior e inferior */
+    padding: 0px 0;
     width: 100%;
-    margin-top: 40px; /* Espacio por encima del footer */
+    margin-top: 40px;
 }
 
-
 .footer-div {
-    display: flex; /* Mantiene el uso de flexbox para alineaciones */
-    flex-direction: column; /* Acomoda los elementos verticalmente por defecto */
-    align-items: center; /* Centra horizontalmente los elementos dentro de cada div */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 33.4%; /* Cada div ocupa un tercio del footer */
+}
+
+.footer-div-1{
+    padding: 20px;
+}
+
+a{
+    color: #f0f0f0;
+    padding: 0 0.5em;
+}
+
+.footer-div-4 {
+    background-color: #212121; /* Color de fondo */
+    width: 100%; /* Ocupa toda la fila */
+    text-align: center; /* Centrar texto horizontalmente */
+    font-size: 0.75em; /* Tamaño de fuente */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 20px; /* Espacio superior */
+    white-space: normal; /* Permite que el texto se divida en varias líneas */
 }
 
 .icon-margin {
