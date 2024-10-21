@@ -8,8 +8,9 @@ import Contacto from './components/Contacto';
 import Infraestructura from './components/Infraestructura';
 import Programas from './components/Programas';
 import LoginForm from './components/loginForms';
-import RegisterForm from './components/RegisterForm';  // Nueva importación
-import ForgotPassword from './components/ForgotPassword';  // Nueva importación
+import RegisterForm from './components/RegisterForm';  
+import ForgotPassword from './components/ForgotPassword';  
+import Home from './pages/Home';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       <Navbar />
       <div className="content">
         <Routes>
-          <Route path="/" element={<h1>Página Principal</h1>} />
+          <Route path="/home" element={<Home />} />
           <Route path="/accommodations" element={<Accomodation />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/infraestructura" element={<Infraestructura />} />

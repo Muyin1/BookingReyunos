@@ -33,11 +33,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Aplicar CORS
                 .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users/register",
-                                "/users/login",
-                                "/users/forgot-password",
-                                "/users/reset-password")
-                        .permitAll() // Permitir login y registro
+                        .requestMatchers("/**")
+                        .permitAll()
                         .anyRequest().authenticated() // Bloquear el resto sin autenticación
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // No usar

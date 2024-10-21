@@ -1,0 +1,57 @@
+footer {
+    background-color: #333;
+    display: flex;
+    justify-content: space-around; /* Distribuye los divs horizontalmente */
+    align-items: flex-start; /* Alinea los divs en la parte superior */
+    color: white;
+    padding: 20px 0; /* Espaciado superior e inferior */
+    width: 100%;
+    margin-top: 40px; /* Espacio por encima del footer */
+}
+
+
+.footer-div {
+    display: flex; /* Mantiene el uso de flexbox para alineaciones */
+    flex-direction: column; /* Acomoda los elementos verticalmente por defecto */
+    align-items: center; /* Centra horizontalmente los elementos dentro de cada div */
+    width: 33.4%; /* Cada div ocupa un tercio del footer */
+}
+
+.icon-margin {
+    margin-right: 0.5em;
+}
+
+/* Estilos específicos para el div de redes sociales */
+.footer-div.socials {
+    display: flex; 
+    flex-direction: row; /* Mantiene los íconos en una fila */
+    justify-content: center; /* Centra los íconos horizontalmente */
+    align-items: center; /* Alinea los íconos verticalmente */
+    gap: 20px; /* Espacio entre los íconos */
+}
+
+.footer-a {
+    display: flex;
+    text-align: left;
+    padding: 0.5em;
+    color: #f0f0f0;
+    font-size: small;
+}
+
+.social-icon {
+    margin-left: 0.5em;
+    color: #f0f0f0;
+    font-size: 4em;
+    transition: 0.5s;
+}
+
+.social-icon:hover {
+    font-size: 4.3em; /* Aumenta el tamaño del icono al pasar el mouse */
+    color: #9e9e9e; /* Cambia a otro color al pasar el mouse */
+}
+
+.footer-img {
+    max-height: 200px;
+    max-width: 200px;
+    margin-top: 10px; /* Espacio superior para la imagen */
+}

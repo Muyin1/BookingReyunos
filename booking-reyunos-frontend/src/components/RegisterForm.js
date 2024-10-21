@@ -1,28 +1,36 @@
+// Registro.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/registro.css';
 
-function RegisterForm() {
+function Registro({ onClose }) {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleRegister = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/users/register', { username, password, email });
-      setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
+      const response = await axios.post('http://localhost:8080/users/register', {
+        username,
+        email,
+        password,
+      });
+      setMessage('Registro exitoso. Puedes iniciar sesión ahora.');
+      // O también puedes cerrar el menú aquí
+      // onClose();
     } catch (error) {
-      setMessage('Error: No se pudo completar el registro.');
+      setMessage('Error: No se pudo registrar. Intenta nuevamente.');
     }
   };
 
   return (
-    <div className="register-form">
+    <div className="registro-form">
       <h2>Registro</h2>
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label>Usuario:</label>
+          <label>Nombre de Usuario:</label>
           <input
             type="text"
             value={username}
@@ -48,11 +56,11 @@ function RegisterForm() {
             required
           />
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit">Registrar</button>
         {message && <p>{message}</p>}
       </form>
     </div>
   );
 }
 
-export default RegisterForm;
+export default Registro;
