@@ -7,17 +7,176 @@
   font-size: 2em;
   text-align: center;
   color: #ff3232;
+  margin-bottom: 20px;
 }
 
 .accommodations-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 20px;
+  padding: 10px;
 }
 
 .accommodation {
+  display: flex;
+  align-items: flex-start;
   border: 1px solid #ccc;
-  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   margin: 10px;
-  width: 300px;
+  width: 700px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.accommodation h3 {
+  margin: 10px 0 5px;
+  color: #ff3232;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: left;
+}
+
+.accommodation-image {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 20px;
+}
+
+.accommodation-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.accommodation p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.accommodation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-button {
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.arrow-button:hover {
+  color: #ff3232;
+}
+
+/* Estilos para el formulario de Login */
+.login-form {
+  margin-top: 20px; /* Espacio superior */
+}
+
+.login-form div {
+  margin-bottom: 15px; /* Espacio entre los campos del formulario */
+}
+
+.login-form label {
+  display: block; /* Que el label ocupe una línea completa */
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.login-form input {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Bordes */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.login-form button {
+  margin-top: 10px; /* Espacio superior */
+  background-color: #ff3232; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin bordes */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1em; /* Tamaño de fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+.login-form button:hover {
+  background-color: #e60000; /* Color de fondo al pasar el mouse */
+}
+
+.login-options {
+  margin-top: 15px; /* Espacio superior */
+}
+
+.login-options a {
+  color: #ff3232; /* Color del enlace */
+  text-decoration: none; /* Sin subrayado */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.login-options a:hover {
+  color: #e60000; /* Color del enlace al pasar el mouse */
+}
+
+/* Estilos para el formulario de Olvidé la Contraseña */
+.forgot-password-form {
+  margin-top: 20px; /* Espacio superior */
+}
+
+.forgot-password-form div {
+  margin-bottom: 15px; /* Espacio entre los campos del formulario */
+}
+
+.forgot-password-form label {
+  display: block; /* Que el label ocupe una línea completa */
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.forgot-password-form input {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Bordes */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.forgot-password-form button {
+  margin-top: 10px; /* Espacio superior */
+  background-color: #ff3232; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin bordes */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1em; /* Tamaño de fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  margin: 0 10px;
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+.forgot-password-form button:hover {
+  background-color: #e60000; /* Color de fondo al pasar el mouse */
+}
+
+/* Mensaje de error o éxito */
+.forgot-password-form p {
+  margin-top: 10px; /* Espacio superior */
+  color: #ff3232; /* Color del mensaje */
+  font-weight: bold; /* Negrita */
 }

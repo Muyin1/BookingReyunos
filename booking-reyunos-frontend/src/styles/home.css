@@ -1,0 +1,11 @@
+
+  .image {
+    display:flex;
+    margin: 5px 65px;
+    width: 90%;
+    height: auto;
+    max-height: 480px;
+    object-fit: fill;
+  }
+  
+ 

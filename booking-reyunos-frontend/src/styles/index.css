@@ -1,27 +1,122 @@
-/* src/index.css */
+/* Estilo base */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
 }
 
-nav {
-  background-color: #333;
-  padding: 10px;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
+/* Navbar */
+.navbar {
+  display: flex;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  z-index: 1000; /* Asegura que esté encima del contenido */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para separación visual */
+}
+/* Ajuste para evitar que la navbar se superponga con el contenido */
+.main-content {
+  margin-top: 60px; /* Espacio igual a la altura de la navbar */
+}
+
+/* Links alineados a la izquierda */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.nav-links a:hover {
+  color: #ff3232;
+}
+
+/* Botón Login a la derecha */
+.login-button {
+  background: none;
+  margin-right: 2em;
+  border: none;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  color: #ff3232;
+}
+
+/* Sidebar del Login */
+.login-sidebar {
+  position: fixed;
+  top: 0;
+  right: -110%; /* Oculto inicialmente */
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 1002; /* Asegura que esté sobre el backdrop */
+  overflow-y: auto;
+}
+
+.login-sidebar.open {
+  right: 0; /* Aparece desde la derecha */
+}
+
+/* Botón de cerrar */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Fondo oscuro */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001; /* Debajo del sidebar */
+}
+
+/* Campos interactuables en el Sidebar */
+.login-sidebar input,
+.login-sidebar button {
+  position: relative;
+  z-index: 1003;
+}
+
+/* Estilo para dispositivos móviles */
+@media (max-width: 768px) {
+  .login-sidebar {
+    width: 95%; /* Ocupa todo el ancho en móvil */
+    padding: 15px; /* Reducimos padding para móviles */
+  }
+
+  .close-button {
+    font-size: 2em; /* Aumentamos el tamaño para fácil acceso */
+  }
+
+  .login-button{
+    content: "👤";
+  }
+
+  .navbar {
+    flex-direction: column; /* Navbar en columna en móviles */
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
 }

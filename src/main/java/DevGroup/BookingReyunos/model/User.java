@@ -28,7 +28,7 @@ public class User {
     private String password;
     private String email;
     private String resetToken;
-    
+
     @Enumerated(EnumType.STRING)
     private Role role; // ADMIN, OWNER, GUEST.
 

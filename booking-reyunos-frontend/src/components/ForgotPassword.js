@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function ForgotPassword() {
+function ForgotPassword({ onClose }) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
@@ -30,6 +30,7 @@ function ForgotPassword() {
         </div>
         <button type="submit">Enviar</button>
         {message && <p>{message}</p>}
+        <button type="button" onClick={onClose} style={{ marginTop: '10px' }}>Cancelar</button> {/* Agregado margen superior */}
       </form>
     </div>
   );

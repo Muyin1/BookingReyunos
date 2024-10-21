@@ -20,7 +20,6 @@ public class Accommodation { // Esta entidad representa un alojamiento que puede
     private Integer id;
     private String name;
     private String description;
-    private String location;
     private BigDecimal pricePerNight;
     
     @ManyToOne

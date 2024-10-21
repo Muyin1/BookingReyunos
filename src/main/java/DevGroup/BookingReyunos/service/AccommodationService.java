@@ -6,11 +6,13 @@ import DevGroup.BookingReyunos.model.Accommodation;
 import DevGroup.BookingReyunos.repository.AccommodationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:3001")
 @Service
 public class AccommodationService {
 

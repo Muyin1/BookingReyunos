@@ -1,0 +1,47 @@
+/* registro.css */
+
+.registro-form {
+    margin-top: 20px; /* Espacio superior */
+  }
+  
+  .registro-form div {
+    margin-bottom: 15px; /* Espacio entre los campos del formulario */
+  }
+  
+  .registro-form label {
+    display: block; /* Que el label ocupe una línea completa */
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .registro-form input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Bordes */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .registro-form button {
+    margin-top: 10px; /* Espacio superior */
+    background-color: #ff3232; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1em; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  .registro-form button:hover {
+    background-color: #e60000; /* Color de fondo al pasar el mouse */
+  }
+  
+  /* Mensaje de error o éxito */
+  .registro-form p {
+    margin-top: 10px; /* Espacio superior */
+    color: #ff3232; /* Color del mensaje */
+    font-weight: bold; /* Negrita */
+  }
+  
