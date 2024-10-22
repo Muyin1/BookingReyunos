@@ -75,29 +75,19 @@ public class UserService {
     }
 
     // Método para autenticar a un usuario y generar un token JWT
-    public String authenticate(LoginDTO loginDTO) {
+    public User authenticate(LoginDTO loginDTO) {
         // Buscar el usuario por su nombre de usuario
         User user = userRepository.findByUsername(loginDTO.getUsername())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
-
+    
         // Verificar la contraseña
         if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())) {
             throw new InvalidCredentialsException("Invalid credentials");
         }
-
-        // Convertir la clave secreta (string) en un objeto SecretKey
-        SecretKey secretKey = Keys.hmacShaKeyFor(secretKeyString.getBytes());
-
-        // Generar el token JWT
-        String token = Jwts.builder()
-                .setSubject(user.getUsername()) // Establecer el sujeto como el nombre de usuario
-                .setIssuedAt(new Date()) // Fecha de emisión del token
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // Expiración en 1 día
-                .signWith(secretKey, SignatureAlgorithm.HS512) // Firmar el token con la clave secreta
-                .compact();
-
-        return token;
-    }
+    
+        return user; // Retornar el usuario encontrado
+    }   
+    
 
     // Método para obtener un usuario por su ID
     public User getUser(Integer id) {

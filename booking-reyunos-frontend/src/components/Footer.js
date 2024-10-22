@@ -39,11 +39,11 @@ function Footer() {
       <div className='footer-div-4'>
         <div>Al utilizar este sitio web, acepta el uso de cookies. </div>
         <div>
-        <a target="_blank" rel="nofollow" href="_blank" class="footer_link">Política de cookies</a> 
+        <a target="_blank" rel="nofollow" href="/cookies" class="footer_link">Política de cookies</a> 
         | 
-        <a target="_blank" rel="nofollow" href="_blank" class="footer_link">Términos y condiciones</a>
+        <a target="_blank" rel="nofollow" href="/terminos" class="footer_link">Términos y condiciones</a>
         |
-        <a target="_blank" rel="nofollow" href="_blank" class="footer_link">Política de privacidad</a>
+        <a target="_blank" rel="nofollow" href="/privacidad" class="footer_link">Política de privacidad</a>
         |
         <a href="" rel="nofollow" target="_blank">Textos</a>
         </div>
