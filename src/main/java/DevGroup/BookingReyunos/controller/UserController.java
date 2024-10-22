@@ -1,6 +1,12 @@
 package DevGroup.BookingReyunos.controller;
 
+import java.util.Date;
+
+import javax.crypto.SecretKey;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,14 +16,28 @@ import DevGroup.BookingReyunos.dto.ResetPasswordRequest;
 import DevGroup.BookingReyunos.dto.LoginDTO;
 import DevGroup.BookingReyunos.dto.TokenDTO;
 import DevGroup.BookingReyunos.model.User;
+import DevGroup.BookingReyunos.security.JwtUtil;
 import DevGroup.BookingReyunos.service.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
+    private final UserService userService;
+    private final JwtUtil jwtUtil;
+
+
+    @Value("${jwt.secret}")
+    private String secretKey;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService, JwtUtil jwtUtil) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil; // Inicialización en el constructor
+    }
 
     // Registro de usuario
     @PostMapping("/register")
@@ -26,13 +46,18 @@ public class UserController {
         return ResponseEntity.ok(new UserDTO(user));
     }
 
-    // Inicio de sesión
+    // Inicio de sesión@PostMapping("/login")
     @PostMapping("/login")
-    public ResponseEntity<TokenDTO> loginUser(@RequestBody LoginDTO loginDTO) {
-        String token = userService.authenticate(loginDTO);
-        return ResponseEntity.ok(new TokenDTO(token));
-    }
+    public ResponseEntity<LoginDTO> loginUser(@RequestBody LoginDTO loginDTO) {
+        User user = userService.authenticate(loginDTO);
 
+        // Generar el token JWT usando la clave secreta definida en application.properties
+        String token = jwtUtil.generateToken(user);
+
+        LoginDTO response = new LoginDTO(user.getUsername(), token);
+        return ResponseEntity.ok(response);
+    }
+    
     // Consulta del perfil del usuario por ID
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUserProfile(@PathVariable Integer id) {

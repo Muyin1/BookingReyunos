@@ -1,13 +1,16 @@
+// src/components/Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from './loginForms';
+import { useAuth } from '../context/AuthContext';
 import '../styles/index.css';
 
 function Navbar() {
+  const { user, logout } = useAuth(); // Asegúrate de tener el user del contexto
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const toggleLogin = (event) => {
-    event.stopPropagation(); // Previene que el evento cierre el sidebar si clickeas dentro de él.
+    event.stopPropagation();
     setIsLoginOpen(!isLoginOpen);
   };
 
@@ -26,19 +29,26 @@ function Navbar() {
           <Link to="/contacto">Contacto</Link>
         </div>
 
-        <button className="login-button" onClick={toggleLogin}>
-          Login
-        </button>
+        {user ? (
+          <>
+            <span>Bienvenido, {user.username}</span>
+            <button className="login-button" onClick={logout}>Cerrar Sesión</button>
+          </>
+        ) : (
+          <button className="login-button" onClick={toggleLogin}>
+            Login
+          </button>
+        )}
       </nav>
 
       <div
         className={`login-sidebar ${isLoginOpen ? 'open' : ''}`}
-        onClick={(e) => e.stopPropagation()} // Evita que el click dentro del sidebar lo cierre.
+        onClick={(e) => e.stopPropagation()}
       >
         <button className="close-button" onClick={closeLogin}>
           X
         </button>
-        <LoginForm />
+        <LoginForm onClose={closeLogin} /> {/* Asegúrate de pasar onClose aquí */}
       </div>
 
       {isLoginOpen && <div className="backdrop" onClick={closeLogin}></div>}

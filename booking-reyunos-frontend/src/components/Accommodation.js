@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/App.css'; 
 
-function Accomodation() {
+function Accommodation() {
   const [accommodations, setAccommodations] = useState([]);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ function AccommodationCard({ accommodation }) {
   );
 }
 
-export default Accomodation;
+export default Accommodation;
