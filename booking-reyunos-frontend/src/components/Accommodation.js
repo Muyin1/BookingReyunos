@@ -12,7 +12,7 @@ function Accommodation() {
   }, []);
 
   return (
-    <div className='main-content'>
+    <div>
       <h2 className="h1">Alojamientos Disponibles</h2>
       <div className="accommodations-list">
         {accommodations.map((acc) => (

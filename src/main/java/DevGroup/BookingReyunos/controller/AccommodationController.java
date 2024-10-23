@@ -35,6 +35,17 @@ public class AccommodationController {
         }
     }
 
+    // Obtener alojamientos por ID del propietario
+    @GetMapping("/owner/{ownerId}")
+    public ResponseEntity<List<AccommodationDTO>> getAccommodationsByOwnerId(@PathVariable Integer ownerId) {
+        try {
+            List<AccommodationDTO> accommodations = accommodationService.findByOwnerId(ownerId);
+            return new ResponseEntity<>(accommodations, HttpStatus.OK);
+        } catch (AccommodationNotFoundException e) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
     // Crear un nuevo alojamiento
     @PostMapping
     public ResponseEntity<AccommodationDTO> createAccommodation(@RequestBody AccommodationDTO accommodationDTO) {

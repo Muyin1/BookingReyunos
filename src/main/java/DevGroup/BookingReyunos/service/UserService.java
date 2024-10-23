@@ -84,7 +84,6 @@ public class UserService {
         if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())) {
             throw new InvalidCredentialsException("Invalid credentials");
         }
-    
         return user; // Retornar el usuario encontrado
     }   
     

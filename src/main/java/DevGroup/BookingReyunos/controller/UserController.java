@@ -46,7 +46,7 @@ public class UserController {
         return ResponseEntity.ok(new UserDTO(user));
     }
 
-    // Inicio de sesión@PostMapping("/login")
+    // Inicio de sesión
     @PostMapping("/login")
     public ResponseEntity<LoginDTO> loginUser(@RequestBody LoginDTO loginDTO) {
         User user = userService.authenticate(loginDTO);
@@ -54,7 +54,7 @@ public class UserController {
         // Generar el token JWT usando la clave secreta definida en application.properties
         String token = jwtUtil.generateToken(user);
 
-        LoginDTO response = new LoginDTO(user.getUsername(), token);
+        LoginDTO response = new LoginDTO(user.getId(),user.getUsername(), token, user.getRole());
         return ResponseEntity.ok(response);
     }
     
