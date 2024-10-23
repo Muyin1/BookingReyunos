@@ -36,7 +36,7 @@ function Navbar() {
           </>
         ) : (
           <button className="login-button" onClick={toggleLogin}>
-            Login
+            Iniciar Sesión
           </button>
         )}
       </nav>
@@ -45,9 +45,6 @@ function Navbar() {
         className={`login-sidebar ${isLoginOpen ? 'open' : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-button" onClick={closeLogin}>
-          X
-        </button>
         <LoginForm onClose={closeLogin} /> {/* Asegúrate de pasar onClose aquí */}
       </div>
 

@@ -3,7 +3,7 @@ import "../styles/infraestructura.css";
 
 function Infraestructura() {
   return (
-    <div className="main-content">
+    <div>
       <h1>INFRAESTRUCTURA</h1>
       <h2>Aulas</h2>
       <p>

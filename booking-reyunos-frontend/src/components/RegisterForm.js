@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/registro.css';
+import LoginForm from './loginForms';
 
 function Registro({ onClose }) {
   const [username, setUsername] = useState('');
@@ -18,8 +19,6 @@ function Registro({ onClose }) {
         password,
       });
       setMessage('Registro exitoso. Puedes iniciar sesión ahora.');
-      // O también puedes cerrar el menú aquí
-      // onClose();
     } catch (error) {
       setMessage('Error: No se pudo registrar. Intenta nuevamente.');
     }

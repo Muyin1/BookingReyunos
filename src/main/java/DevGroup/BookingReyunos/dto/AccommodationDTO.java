@@ -14,7 +14,5 @@ public class AccommodationDTO {
     @NotBlank
     private String description;
     private BigDecimal pricePerNight;
-    private Long ownerId; // Referencia al propietario
-
-    // Getters y Setters
+    private Integer ownerId; // Referencia al propietario
 }

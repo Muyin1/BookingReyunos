@@ -1,6 +1,7 @@
 // src/components/Dashboard.js
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import OwnerDashboard from '../components/OwnerDashboard';
 
 const Dashboard = () => {
   const { user } = useAuth(); // Asumiendo que el contexto tiene un objeto `user` con la información del usuario.
@@ -12,18 +13,18 @@ const Dashboard = () => {
   const renderDashboardContent = () => {
     switch (user.role) {
       case 'OWNER':
-        return <h2>Bienvenido al Dashboard del Propietario</h2>;
+        return <OwnerDashboard/>;
       case 'ADMIN':
         return <h2>Bienvenido al Dashboard del Administrador</h2>;
       case 'GUEST':
-        return <h2>Bienvenido al Dashboard del Huésped</h2>;
+        return <h2>Bienvenido {user.username} desde aquí podra visualizar el estado de su reserva.</h2>;
       default:
         return <h2>Rol desconocido</h2>;
     }
   };
 
   return (
-    <div className='main-content'>
+    <div>
       {renderDashboardContent()}
       {/* Puedes añadir más contenido específico para cada rol aquí */}
     </div>
