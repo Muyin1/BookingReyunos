@@ -1,5 +1,6 @@
 package DevGroup.BookingReyunos.dto;
 
+import DevGroup.BookingReyunos.model.Role;
 import DevGroup.BookingReyunos.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,7 @@ public class UserDTO {
     private String username;
     private String email;
     private String password;
+    private Role role;
 
     public UserDTO(User user) {
         this.id = user.getId();
