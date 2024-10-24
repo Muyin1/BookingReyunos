@@ -1,9 +1,14 @@
 import React from "react";
+import '../styles/Cookies.css';
 
 export function FotoLogo(){
     return (
-        <div className="main-content">
-            <img src="https://files-public-web.s3-us-west-2.amazonaws.com/1472/company/library/user/51742008549581e7db8aba6fb75df56232d673d813.png"></img>
+        <div className="styleFotoLogo">
+            <img
+                src="https://files-public-web.s3-us-west-2.amazonaws.com/1472/company/library/user/51742008549581e7db8aba6fb75df56232d673d813.png" 
+                alt="Logo"
+            />
+
         </div>
     );
 }
@@ -46,12 +51,12 @@ const TableComponent = ({ data }) =>{
 
 function Cookies(){
     const tableData = [
-        {Tipo:"Necesarias para el Funcionamiento: PHPSESSID _ga _gid", Finalidad:"Estas cookies permiten la navegación a través de la web y la utilización de las diferentes opciones o servicios que se prestan. También se utilizan para mejorar su experiencia de navegación y para optimizar el funcionamiento de nuestra página. Almacenan configuraciones de servicios para que el usuario no tenga que reconfigurarlos cada vez que nos visita.",Caducidad:"De 1 sesión a 1 día"},
+        {Tipo:"Necesarias para el Funcionamiento: PHPSESSID, _ga, _gid", Finalidad:"Estas cookies permiten la navegación a través de la web y la utilización de las diferentes opciones o servicios que se prestan. También se utilizan para mejorar su experiencia de navegación y para optimizar el funcionamiento de nuestra página. Almacenan configuraciones de servicios para que el usuario no tenga que reconfigurarlos cada vez que nos visita.",Caducidad:"De 1 sesión a 1 día"},
         {Tipo:"Analitcas: _1P_JAR, APISID, CONSENT, HSID, NID, OGP, OGPC, SAPISID, SID, SIDCC, SSID, _ga, tag, *_tag, *_Reference, Email, *_UserID ",Finalidad:"Estas cookies se utilizan para recoger información sobre el uso de nuestro sitio web por parte de los visitantes. Utilizamos la información para elaborar informes y para mejorar el sitio. Estas cookies se asocian únicamente a un usuario anónimo y a su ordenador/dispositivo sin proporcionar referencias que permitan conocer datos personales. Recogen el número de visitantes al sitio, el tiempo que duran las visitas, el navegador, el tipo de terminal, el lugar de procedencia de los visitantes y las páginas visitadas.",Caducidad:"De 6 meses a 1 año"},
         {Tipo:"De Personalizacion: PHPSESSID, CurrencyTk, LngTk",Finalidad:"Son aquéllas que permiten al usuario acceder al servicio con algunas características de carácter general predefinidas en función de una serie de criterios en el terminal del usuario como por ejemplo serian el idioma, la moneda, el tipo de navegador a través del cual accede al servicio, la configuración regional desde donde accede al servicio, etc.",Caducidad:"30 Dias"}
     ];
     return(
-        <div className="main-content">
+        <div className="styleCookies">
             <FotoLogo/>
             <h1 aling="left">Politicas de Privacidad y Cookies</h1>
             <p>
@@ -72,6 +77,7 @@ function Cookies(){
              circulares promocionales  o mensajes electrónicos, salvo que Ud. no lo desee (ver más adelante: política  
              de renuncia opt. out).
             </p>
+            <br></br>
             <p>
                 <strong>
                     Encuestas:
@@ -79,7 +85,9 @@ function Cookies(){
                 CTDR UTN Reyunos podrá llevar a cabo o presentar periódicamente encuestas en línea. La información 
                 obtenida por medio de dichas encuestas se usa para mejorar las ofertas de productos y servicios de 
                 CTDR UTN Reyunos.
+                
             </p>
+            <br></br>
             <p>
                 <strong>
                     Uso de la página:
@@ -87,7 +95,9 @@ function Cookies(){
                 CTDR UTN Reyunos mantiene un seguimiento de las direcciones IP de los hosts con fines de administración 
                 y seguridad del sistema. También monitoreamos el tráfico de la página rastreando las vistas de la página 
                 que nos permite planear crecimiento (por ejemplo, agregando nuevos servidores).
+                
             </p>
+            <br></br>
             <p>
                 <strong>
                     Divulgación a terceros:
@@ -105,6 +115,7 @@ function Cookies(){
                 interferencia de los derechos o propiedades de CTDR UTN Reyunos o de sus usuarios. CTDR UTN Reyunos 
                 también podrá compartir información personal con sus afiliados.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Política de renuncia (opt out):
@@ -122,6 +133,7 @@ function Cookies(){
                 para protección contra interferencia de los derechos o propiedades de CTDR UTN Reyunos o de sus usuarios. 
                 CTDR UTN Reyunos también podrá compartir información personal con sus afiliados.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Almacenamiento y transferencia de información:
@@ -133,6 +145,7 @@ function Cookies(){
                 servidores en cualquier otro país, en el futuro, y puede almacenar información personal en los Estados 
                 Unidos o en otros países, con fines de respaldo o back up.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Vínculos externos:
@@ -140,6 +153,7 @@ function Cookies(){
                 Esta página tiene vínculos (links) con otras páginas. CTDR UTN Reyunos no es 
                 responsable por la confidencialidad o contenido de tales páginas web.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Acceso público a la información:
@@ -151,6 +165,7 @@ function Cookies(){
                 en estas áreas puede convertirse en información pública y se debe ejercer cuidado cuando se decida 
                 divulgar tal información.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Seguridad:
@@ -161,6 +176,7 @@ function Cookies(){
                 automáticamente los datos antes de enviarlos a CTDR UTN Reyunos. A pesar de nuestras medidas de 
                 seguridad, le rogamos tener en cuenta que la 'seguridad perfecta' no existe en Internet.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Para contactarnos:
@@ -169,6 +185,7 @@ function Cookies(){
                 o sus negociaciones con la página de CTDR UTN Reyunos, nos puede contactar en la sección de 
                 'Contáctenos'.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Modificaciones:
@@ -178,6 +195,7 @@ function Cookies(){
                 página. CTDR UTN Reyunos encarece a los usuarios el revisar periódicamente esta 'Declaración de 
                 Confidencialidad'.
             </p>
+            <br></br>
             <p>
                 <strong>
                     Aplicabilidad:
@@ -188,11 +206,13 @@ function Cookies(){
                 incorporada y sujeta a las condiciones de uso de CTDR UTN Reyunos. Esta página es para fines 
                 relacionados con alquiler de hoteles y está prohibida cualquier otra utilización.
             </p>
+            <br></br>
             <p>
                 <strong>
                     ¿Qué es una cookie?
                 </strong>
             </p>
+            <br></br>
             <p>
             Una cookie es un pequeño fichero de texto que se almacena en su dispositivo cuando visita una página Web. 
             Su utilidad es que la Web sea capaz de recordar su visita cuando vuelva a navegar por esa página. 
@@ -203,53 +223,60 @@ function Cookies(){
             leídas por el servicio o aplicación que las ha emitido y en ningún caso son archivos ejecutables, ni pueden 
             propagarse, ni contener un virus.
             </p>
+            <br></br>
             <p>
                 <strong>
                     ¿Qué tipología de cookies hay?
                 </strong>
             </p>
+            <br></br>
             <p>Según la entidad que las gestione:</p>
+            <br></br>
             <ul>
-                <li classname ="main-content">
+                <li>
                     Cookies propias: Son aquellas cookies que se envían al equipo terminal del usuario desde un 
                     equipo o dominio gestionado por el grupo y desde el que se presta el servicio solicitado por el 
                     usuario.
                 </li>
                 <br></br>
-                <li classname ="main-content">
+                <li >
                     Cookies de terceros: Son aquellas cookies que se envían al equipo terminal del usuario desde un 
                     equipo o dominio gestionado o no por el grupo, siendo un tercero la que trata los datos obtenidos a 
                     través de las cookies.
                 </li>
             </ul>
+            <br></br>
             <p>
                 En función de su duración las cookies pueden ser:
             </p>
+            <br></br>
             <ul>
-                <li classname ="main-content">
+                <li>
                     De sesión. Son un tipo de cookies diseñadas para recabar y almacenar datos mientras el usuario 
                     accede a una página Web. Estas cookies no quedan almacenadas en el ordenador del usuario cuando caduca 
                     la sesión o este cierra el navegador.
                 </li>
                 <br></br>
-                <li classname ="main-content">
+                <li>
                     Persistentes. Son un tipo de cookies en el que los datos siguen almacenados en el ordenador 
                     del usuario y pueden ser accedidos y tratados cuando el usuario abandona la página Web y cuando 
                     se vuelva a conectar a ella. Estas cookies pueden ser borradas en cualquier momento por el Usuario.
                 </li>
             </ul>
+            <br></br>
             <p>
                 En función de la finalidad para la que se traten los datos obtenidos a través de las cookies:
             </p>
+            <br></br>
             <ul >
-                <li classname ="main-content">
+                <li>
                     Cookies técnicas (necesarias). Estas cookies son necesarias para que la página Web y sus funciones 
                     básicas puedan operar correctamente. Sin estas cookies no es posible poner a disposición 
                     determinados servicios, como la navegación segura, identificación del usuario, realizar la 
                     inscripción o participación en un evento.
                 </li>
                 <br></br>
-                <li classname ="main-content">
+                <li>
                     Cookies analíticas (estadística). Estas cookies recopilan información sobre el uso que se hace de 
                     la página Web, qué páginas se visitan más, con qué frecuencia, si dan mensajes de error. De ese modo 
                     podemos medir la actividad de nuestro sitio Web, por ejemplo para identificar las secciones más 
@@ -257,7 +284,7 @@ function Cookies(){
                     emplea para mejorar el funcionamiento de una página Web.
                 </li>
                 <br></br>
-                <li classname ="main-content">
+                <li>
                     Cookies de personalización (preferencias). Estas cookies hacen posible que la página Web recuerde 
                     las preferencias, como el nombre de usuario, el idioma, ubicación geográfica, por tanto su finalidad 
                     es ofrecer funciones mejoradas y personales. Por ejemplo, nuestra página Web podría ofrecer 
@@ -266,25 +293,27 @@ function Cookies(){
                     cookies, no podrá utilizar todas las funciones interactivas de nuestra página Web.
                 </li>
                 <br></br>
-                <li classname ="main-content">
+                <li>
                     Cookies de publicidad (marketing). Son aquéllas que permiten la gestión de los espacios publicitarios 
                     que hay en una página Web. Estas cookies se utilizan para mostrar los anuncios más relevantes de 
                     acuerdo a los intereses del usuario. También se usan para limitar el número de veces que el usuario 
                     ve un anuncio, así como para ayudar a medir la efectividad de una campaña publicitaria.
                 </li>
                 <br></br>
-                <li classname ="main-content">
+                <li>
                     Cookies de publicidad comportamental (marketing). Estas cookies almacenan información del 
                     comportamiento de los usuarios obtenida a través de la observación de sus hábitos de navegación, 
                     lo que permite la creación de perfiles basados en hábitos del usuario para mostrar publicidad en 
                     función del mismo.
                 </li>
             </ul>
+            <br></br>
             <p>
                 <strong>
                     ¿Qué tipo de cookies utiliza CTDR UTN Reyunos?
                 </strong>
             </p>
+            <br></br>
             <p>
                 <strong>Necesarias: </strong> Estas cookies son necesarias para que la página Web funcione, 
                 por lo que no se pueden desactivar. Por lo general, solo se configuran en respuesta a sus acciones 
@@ -292,22 +321,25 @@ function Cookies(){
                 completar formularios, esto último no ocurre en CTDR UTN Reyunos porque no tenemos registro de usuarios, 
                 por lo tanto tampoco hay inicio de sesión de usuario, ni usamos formularios de recogida de datos.
             </p>
+            <br></br>
             <p>
                 <strong>Preferencias:</strong>Las cookies de preferencias permiten a la página Web recordar información 
                 que cambia la forma en que la página se comporta o el aspecto que tiene, como su idioma preferido o la 
                 región en la que usted se encuentra.
             </p>
+            <br></br>
             <p>
                 <strong>Estadística:</strong> Las cookies estadísticas ayudan a los propietarios de páginas Web a 
                 comprender cómo interactúan los visitantes con las páginas Web reuniendo y proporcionando información 
                 de forma anónima.
             </p>
-
+            <br></br>
             <p>
                 <strong>
                     ¿Qué cookies utiliza CTDR UTN Reyunos?
                 </strong>
             </p>
+            <br></br>
             <TableComponent data={tableData}/>
             
         </div>
